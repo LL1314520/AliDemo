@@ -1,9 +1,6 @@
 import React from 'react';
 import {HashRouter, Route, Switch} from 'react-router-dom'
-
-
 import AliDemo from './component/page/AliDemo';
-
 
 
 const routes = (

@@ -1,9 +1,5 @@
 import React from 'react'
 import '../../assets/css/page/homenav.scss'
-import U from "../../common/U";
-import {App, CTYPE} from "../../common";
-import {Banners} from "../Comps";
-import AutoResponsive from 'autoresponsive-react';
 
 
 export default class HomeNav extends React.Component {
@@ -14,15 +10,8 @@ export default class HomeNav extends React.Component {
         }
     }
 
-    componentWillReceiveProps(nextProps) {
-        this.setState({
-        });
-    }
-
-
 
     render() {
-
 
         return <div className="nav-page">
                 <div className="top">

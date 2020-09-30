@@ -1,10 +1,10 @@
 import React from 'react'
 import '../../assets/css/page/alidemo.scss'
 import U from "../../common/U";
-import {App, CTYPE} from "../../common";
 import HomeBody from './HomeBody';
 import HomeNav from './HomeNav';
 import HomeFoot from './HomeFoot';
+import Bottom from './Bottom';
 
 
 export default class AliDemo extends React.Component {
@@ -26,6 +26,7 @@ export default class AliDemo extends React.Component {
             <HomeNav/>
             <HomeBody/>
             <HomeFoot/>
+            <Bottom/>
         </div>
 
 

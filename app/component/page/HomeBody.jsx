@@ -11,12 +11,6 @@ export default class HomeBody extends React.Component {
         }
     }
 
-    componentWillReceiveProps(nextProps) {
-        this.setState({
-        });
-    }
-
-
 
     render() {
 
@@ -24,10 +18,7 @@ export default class HomeBody extends React.Component {
         return <div className="body-page">
             <div className="body-box">
                 <img src={"https://img.alicdn.com/tfs/TB14TEEm7CWBuNjy0FaXXXUlXXa-1440-478.png"} className="img"/>
-                {/*<div className="img">*/}
                 <div className="img-opacity"/>
-
-
 
                 <div className="mid-box">
                     <div className="float-mid">

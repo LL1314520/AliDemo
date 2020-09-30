@@ -3,7 +3,6 @@ import {message} from 'antd';
 import KvStorage from './KvStorage.jsx';
 import createHashHistory from 'history/createHashHistory';
 import {U} from "./index";
-import TraineeProfile from "../component/trainee/TraineeProfile";
 
 const hashHistory = createHashHistory();
 
@@ -104,7 +103,6 @@ const api = (path, params, options) => {
 let logout = () => {
     removeCookie('trainee-token');
     removeCookie('trainee-profile');
-    TraineeProfile.clear();
 };
 
 export default {

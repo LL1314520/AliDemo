@@ -4,7 +4,6 @@ import {LocaleProvider} from 'antd';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
 
 import ImgLightbox from "./ImgLightbox";
-import {NameCard} from "../component/Comps";
 
 let Utils = (function () {
 
@@ -81,7 +80,7 @@ let Utils = (function () {
 
             let {pageable = {}, totalElements, totalPages} = result;
 
-            let pageSize = pageable.pageSize || CTYPE.pagination.pageSize;
+            let pageSize = pageable.pageSize ;
             let current = pageable.pageNumber + 1;
 
             return {
@@ -95,17 +94,9 @@ let Utils = (function () {
 
     })();
 
-    let namecard = (() => {
-        let show = (options) => {
-            common.renderReactDOM(<NameCard card={namecard} options={options}/>, {id: 'div-namecard'});
-        };
-
-        return {show}
-
-    })();
 
     return {
-        common, pager, namecard
+        common, pager,
     };
 
 })();

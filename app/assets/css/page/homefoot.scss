@@ -18,6 +18,7 @@
       height: 300px;
       box-shadow: 0 0 15px 0 rgba(31, 56, 88, 0.08);
       border-radius: 3px;
+      overflow: hidden;
 
 
       .last-head {
@@ -44,52 +45,76 @@
         }
       }
 
-      .animate{
-        transition:all .8s;
-      }
+
       .ant-list-split .ant-list-item {
         border-bottom: none;
         overflow: hidden;
       }
 
-      .scroll-ul {
+      .ul-div{
         width: 850px;
         height: 250px;
         overflow: hidden;
 
 
-        .li-work{
-          width: 100%;
-          height: 50px;
-          padding: 0 14px;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: space-between;
+        .scroll-ul {
+          width: 850px;
+          height: 9999px;
           overflow: hidden;
-          .name{
-            width: 400px;
-            font-size: 14px;
-            color: #3c99d8;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            font-weight: 400;
-            cursor: pointer;
+          animation: moving 10s linear infinite;
 
-          }
-          .workPosition,.time{
-            font-size: 14px;
-            color: rgba(0,0,0,0.6);
+          .li-work{
+            width: 100%;
+            height: 50px;
+            padding: 0 14px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
             overflow: hidden;
-            text-overflow: ellipsis;
-            font-weight: 400;
-            cursor: pointer;
-            width: 100px;
-            text-align: center;
+            .name{
+              width: 400px;
+              font-size: 14px;
+              color: #3c99d8;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              font-weight: 400;
+              cursor: pointer;
 
+            }
+            .workPosition,.time{
+              font-size: 14px;
+              color: rgba(0,0,0,0.6);
+              overflow: hidden;
+              text-overflow: ellipsis;
+              font-weight: 400;
+              cursor: pointer;
+              width: 100px;
+              text-align: center;
+
+            }
           }
         }
+
+        .scroll-ul:hover{
+          animation-play-state: paused;
+        }
+
+        @keyframes moving {
+          0%{transform: translateY(0px);}
+          10%{transform: translateY(-50px);}
+          20%{transform: translateY(-100px);}
+          30%{transform: translateY(-150px);}
+          40%{transform: translateY(-200px);}
+          50%{transform: translateY(-250px);}
+          60%{transform: translateY(-300px);}
+          70%{transform: translateY(-350px);}
+          80%{transform: translateY(-400px);}
+          90%{transform: translateY(-450px);}
+          100%{transform: translateY(-500px);}
+        }
       }
+
     }
 
     .show-tip {
