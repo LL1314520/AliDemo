@@ -6,7 +6,6 @@ import HomeBody from './HomeBody';
 import HomeNav from './HomeNav';
 import HomeFoot from './HomeFoot';
 
-const bannerType = CTYPE.bannerTypes.ABOUT_PC;
 
 export default class AliDemo extends React.Component {
     constructor(props) {

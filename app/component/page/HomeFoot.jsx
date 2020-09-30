@@ -1,8 +1,8 @@
 import React from 'react'
 import '../../assets/css/page/homefoot.scss'
+import {List} from 'antd'
 
-
-
+let scrollInterval='';
 export default class HomeFoot extends React.Component {
     constructor(props) {
         super(props);
@@ -18,6 +18,8 @@ export default class HomeFoot extends React.Component {
                 {name:'阿里集团-CPO线-人力资源部',workPosition:'武汉',time:'26分钟前'},
                 {name:'阿里云智能事业群-阿里云-基础设施事业部',workPosition:'深圳',time:'3小时前'},
             ],
+            listMarginTop:"0",
+            animate:false,
         }
     }
 
@@ -25,6 +27,65 @@ export default class HomeFoot extends React.Component {
         this.setState({
         });
     }
+
+    componentDidMount() {
+        this.scrollUp()
+    }
+
+    scrollUp= () =>{
+
+        this.state.scroll.push(this.state.scroll[0]);
+        let height=document.getElementById("scrollList").getElementsByTagName("li")[0].scrollHeight+1;
+        // let height=50;
+        this.setState({
+            animate: true,
+            listMarginTop: "-"+height+"px",
+        });
+        setTimeout(() => {
+            this.scrollUp();
+            this.state.scroll.shift();
+            this.setState({
+                animate: false,
+                listMarginTop: "0",
+            });
+            this.forceUpdate();
+        }, 1000)
+    };
+
+    scrollDown= () =>{
+        let ulNode=document.getElementById("scrollList").getElementsByTagName("ul")[0];
+        ulNode.firstChild.classList.remove("opacityAnimation");
+        this.setState({
+            animate: true ,
+            listMarginTop: ulNode.lastChild.scrollHeight+"px"
+        });
+        setTimeout(() => {
+            this.state.scroll.unshift(this.state.scroll[this.state.scroll.length-1]);
+            ulNode.firstChild.classList.add("opacityAnimation");
+            this.state.scroll.pop();
+            this.setState({
+                animate: false,
+                listMarginTop: "0",
+            });
+            this.forceUpdate();
+        },1000)
+    };
+
+    startScrollUp= () =>{
+        this.endScroll();
+        this.scrollUp();
+        scrollInterval=setInterval(this.scrollUp, 3000);
+    };
+
+    startScrollDown= () =>{
+        this.endScroll();
+        this.scrollDown();
+        scrollInterval=setInterval(this.scrollDown, 3000);
+    };
+
+    endScroll= () =>{
+        clearInterval(scrollInterval);
+    };
 
 
 
@@ -35,27 +96,35 @@ export default class HomeFoot extends React.Component {
         let {scroll=[]}=this.state;
 
 
+
+
         return <div className="foot-page">
                 <div className="foot-box">
                     <div className="scroll-box">
                         <div className="last-head">
                             <div className="last-title">最新职位</div>
-                            <a className="last-more">更多</a>
+                            <a className="last-more" onClick={()=>{
+
+                            }}>更多</a>
                         </div>
 
-                        <ul className="scroll-ul">
-
-                            {scroll.map((item,index)=>{
-
+                        <List
+                            itemLayout="horizontal"
+                            id="scrollList"
+                            style={{marginTop:this.state.listMarginTop}}
+                            //className={this.state.animate ? "scroll-ul animate" : 'scroll-ul'}
+                            className="scroll-ul animate"
+                            dataSource={scroll}
+                            renderItem={item => {
                                 let {name,workPosition,time}=item;
-
-                                return <li >
+                                return <List.Item className="li-work">
                                     <div className="name">{name}</div>
                                     <div className="workPosition">{workPosition}</div>
                                     <div className="time">{time}</div>
-                                </li>
-                            })}
-                        </ul>
+                                </List.Item>
+                            }}
+                        />
+
                     </div>
 
 
