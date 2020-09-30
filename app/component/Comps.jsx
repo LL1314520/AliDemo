@@ -69,49 +69,7 @@ class Footer extends React.Component {
 
             <div className="inner">
 
-                <div className='links'>
-                    <div className='uls'>
-                        <ul>
-                            <li><b>公司介绍</b></li>
-                            <li>
-                                <a onClick={() => {
-                                    App.go('/')
-                                }}>关于我们</a>
-                            </li>
-                            <li>
-                                <a onClick={() => {
-                                    App.go('/')
-                                }}>媒体报道</a>
-                            </li>
-                            <li>
-                                <a onClick={() => {
-                                }}>企业合作</a>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li><b>友情链接</b></li>
-                            <li><a href='https://www.congzhitech.com/' target='_blank'>从知科技</a></li>
-                            <li><a href='http://www.chinasva.com/' target='_blank'>上海特蓝</a></li>
-                            <li><a href='http://www.shgowin.cn/' target='_blank'>上海革文</a></li>
-                        </ul>
-                        <ul style={{width: 450}}>
-                            <li><b>联系我们</b></li>
-                            <li>招生热线：{CTYPE.contact}</li>
-                            <li>办公时间：{CTYPE.worktime}</li>
-                            <li>公司地址：{CTYPE.addr_cn}</li>
-                        </ul>
-                    </div>
 
-                </div>
-
-                <div className='qrcode'>
-                    <div className='img'/>
-                    <p>扫码关注公众号</p>
-                </div>
-
-                <div className="copyright">
-                    Copyright © 2018 河南迈道信息技术有限公司 ALL Rights Reserved. 豫ICP备18043229号-1
-                </div>
             </div>
 
         </div>
@@ -218,9 +176,6 @@ class FreeBar extends React.Component {
 
     render() {
         return <div className='free-bar'>
-            <div className='inner'>
-                <div className='btn' onClick={this.showBox}>立即报名</div>
-            </div>
         </div>
     }
 }
@@ -456,15 +411,7 @@ class NameCard extends React.Component {
             <div className="overlay" onClick={() => this.close()}/>
             <div className="namecard-dialog">
                 <div className="close" onClick={this.close}/>
-                <div className="inner">
-                    <div className="card-title">
-                        <div className="title">迈道教育</div>
-                        <p>加微信号，了解最全信息，获取最新优惠</p></div>
-                    <img className="card-qrcode" src={require('../assets/image/common/qrcode.jpg')}/>
-                    <div className="tip">微信扫描二维码加好友</div>
 
-                    <div className="tip">招生电话：15021129897</div>
-                </div>
             </div>
         </div>;
     }
@@ -498,30 +445,7 @@ class TrainingProject extends React.Component {
 
         return <div className='page-block training-project'>
             <div className='inner'>
-                <div className='f-title'>超多实战项目，为你一一剖析</div>
-                <div className='s-title'>我们的每一个项目都是真实的企业案例，为了让学员能够毕业后跟企业无缝对接</div>
 
-
-                <div className='carousel-block'>
-                    {length > 0 &&
-                    <Carousel autoplay={length > 1} dots={length > 1} speed={500} autoplaySpeed={6000} effect="fade"
-                              afterChange={(current) => {
-                                  this.setState({currentSlide: current});
-                              }}>
-                        {list.map((item, index) => {
-                            let {img} = item;
-                            return <div key={index} className='item'>
-                                <img src={img}/>
-                            </div>
-                        })}
-                    </Carousel>}
-
-                    <div className='info'>
-                        <div className='i-title'>{curr.title}</div>
-                        <div className='i-descr'>{curr.descr}</div>
-                    </div>
-
-                </div>
 
             </div>
         </div>

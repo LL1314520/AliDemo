@@ -29,27 +29,35 @@ export default class HomeFoot extends React.Component {
     }
 
     componentDidMount() {
-        this.scrollUp()
+        this.scrollUp(true);
     }
 
-    scrollUp= () =>{
+    componentWillUnmount(){
 
-        this.state.scroll.push(this.state.scroll[0]);
-        let height=document.getElementById("scrollList").getElementsByTagName("li")[0].scrollHeight+1;
-        // let height=50;
-        this.setState({
-            animate: true,
-            listMarginTop: "-"+height+"px",
-        });
-        setTimeout(() => {
-            this.scrollUp();
-            this.state.scroll.shift();
+    }
+
+    scrollUp= (add) =>{
+        if(add){
+            this.state.scroll.push(this.state.scroll[0]);
+            let height=document.getElementById("scrollList").getElementsByTagName("li")[0].scrollHeight+1;
+            // let height=50;
             this.setState({
-                animate: false,
-                listMarginTop: "0",
+                animate: true,
+                listMarginTop: "-"+height+"px",
             });
-            this.forceUpdate();
-        }, 1000)
+            setTimeout(() => {
+                this.scrollUp(true);
+                this.state.scroll.shift();
+                this.setState({
+                    animate: false,
+                    listMarginTop: "0",
+                });
+                this.forceUpdate();
+            }, 1000)
+        }else {
+            return'';
+        }
+
     };
 
     scrollDown= () =>{

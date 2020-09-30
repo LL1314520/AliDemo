@@ -562,7 +562,7 @@ var U = (function () {
             }, 9);
         };
         document.body.appendChild(i);
-        document.title = t + ' - 迈道教育 河南迈道信息技术有限公司旗下教育培训业务，产学研一体化教育策略，高精实三维教学目标';
+        document.title = t ;
     };
 
     let url = (() => {
