@@ -22,9 +22,12 @@
       background-size: contain;
     }
 
-    .ow {
-
-    }
+    //.ow {
+    //  color: white;
+    //  height: 54px;
+    //  line-height: 54px;
+    //  text-align: center;
+    //}
 
     i {
       width: 2px;
@@ -33,7 +36,7 @@
       margin: 0 10px;
     }
 
-    .txt,.last,.text-check,.txt-home{
+    .txt,.last,.text-check,.txt-home,.ow{
       width: 56px;
       height: 54px;
       line-height: 54px;
@@ -57,6 +60,31 @@
 
     .last{
       width: 86px;
+    }
+
+    .login{
+      height: 54px;
+      flex:1;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+
+      .welcome{
+        color: white;
+        font-size: 14px;
+
+      }
+      i{
+        width: 2px;
+        height: 12px;
+        background: #fff;
+        margin: 0 4px;
+      }
+      .button{
+        color: white;
+        font-size: 14px;
+      }
     }
 
   }

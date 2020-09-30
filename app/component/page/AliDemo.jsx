@@ -2,9 +2,9 @@ import React from 'react'
 import '../../assets/css/page/alidemo.scss'
 import U from "../../common/U";
 import {App, CTYPE} from "../../common";
-import {Banners} from "../Comps";
-import AutoResponsive from 'autoresponsive-react';
+import HomeBody from './HomeBody';
 import HomeNav from './HomeNav';
+import HomeFoot from './HomeFoot';
 
 const bannerType = CTYPE.bannerTypes.ABOUT_PC;
 
@@ -12,9 +12,6 @@ export default class AliDemo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            banners: [],
-            jobs: [],
-            heights: []
         }
     }
 
@@ -24,12 +21,12 @@ export default class AliDemo extends React.Component {
 
 
 
-
-
     render() {
 
         return <div className="ali-page">
             <HomeNav/>
+            <HomeBody/>
+            <HomeFoot/>
         </div>
 
 

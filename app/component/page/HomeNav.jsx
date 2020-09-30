@@ -37,7 +37,16 @@ export default class HomeNav extends React.Component {
                     <a className="last">了解阿里</a>
                     <a className="last">个人中心</a>
 
+                    <div className="login">
+                        <div className="welcome">欢迎来到阿里巴巴集团招聘！</div>
+
+                        <a className="button">登录</a>
+                        <i/>
+                        <a className="button">注册</a>
+                    </div>
+
                 </div>
+
 
         </div>
 
